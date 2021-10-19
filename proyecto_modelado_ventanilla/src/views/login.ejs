@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/font-awesome.min.css">
+    <link rel="stylesheet" href="css/prism-okaidia.css">
+    <link rel="stylesheet" href="css/custom.min.css">
+    <!-- Global Site Tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23019901-1"></script>
+</head>
+
+<body class="pt-0">
+    <%- include('./partials/header'); %>
+        <main class="m-auto mt-3" style="width: 40%;">
+            <h1 class="text-center">
+                Bienvenido a ventanilla
+            </h1>
+            <form action="/login" method="POST">
+                <div class="form-group">
+                    <div class="form-floating mb-3">
+                        <input type="text" class="form-control" id="floatingInput" name="tarjeta">
+                        <label for="floatingInput">Id tarjeta</label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="floatingInput" name="contrasena">
+                        <label for="floatingInput">contraseña</label>
+                    </div>
+
+
+                    <button class="w-100 btn btn-lg btn-primary mb-5" type="submit">Entrar</button>
+
+                </div>
+            </form>
+        </main>
+
+        <% if(typeof validaciones !='undefined' ){ %>
+            <% validaciones.forEach( (validacion) =>{%>
+                <div class="alert alert-dismissible alert-primary w-75 m-auto">
+                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    <strong><%=validacion.msg%></strong>
+                  </div>
+            <% })%>
+        <% }%>
+
+                <script src="js/jquery.min.js"></script>
+                <script src="js/bootstrap.bundle.min.js"></script>
+                <script src="js/prism.js" data-manual></script>
+                <script src="js/custom.js"></script>
+</body>
+
+</html>
